@@ -30,7 +30,7 @@ const edgeProductList = edgeProducts.map((x) => {
       />
     </div>
     <div
-      class="card-footer text-center p-1 text-muted text-bold"
+      class="card-footer text-center p-1 my-footer-txt text-muted text-bold"
     >${x.name}</div>
   </div>
 </div>`;
