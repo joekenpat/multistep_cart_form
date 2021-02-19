@@ -28,7 +28,7 @@ let edgeMaterials = (materials = []) => {
 };
 const layoutTypeContent = layoutTypes.map((x) => {
   return `<div class="col-4 px-1" data-layout-id="${x}">
-  <div class="card" >
+  <div class="card ">
     <div class="card-body text-center">
       <p class="build-type-txt mb-0">${x}</p>
     </div>
@@ -37,7 +37,7 @@ const layoutTypeContent = layoutTypes.map((x) => {
 });
 
 const edgeProductList = edgeProducts.map(x => {
-    return `<div class="col-4 px-1">
+    return `<div class="col-4 px-1 py-1">
   <div class="card" data-product-id="${x.id}">
     <div class="card-body p-0 text-center">
       <img
@@ -46,7 +46,7 @@ const edgeProductList = edgeProducts.map(x => {
       />
     </div>
     <div
-      class="card-footer text-center p-1 my-footer-txt text-muted text-bold"
+      class="card-footer text-center p-1 my-footer-txt text-bold"
     >${x.name}</div>
   </div>
 </div>`;

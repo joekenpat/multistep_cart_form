@@ -1,40 +1,42 @@
-
- /* ========= big screen ========= */
+/* ========= big screen ========= */
 @media screen and (min-width: 480px) {
-    .build-type-txt{
-        font-weight: bold;
-        font: 700;
-    }
-    .mesh-no-choice-txt{
-        font-weight: bold;
-        font-size: 0.8em;
-       }
-    
+  .build-type-txt {
+    font-weight: bold;
+    font: 700;
   }
+  .mesh-no-choice-txt {
+    font-weight: bold;
+    font-size: 0.8em;
+  }
+}
 
-  /* ========= small screen ========= */
-  @media screen and (max-width: 600px) {
-    .build-type-txt{
-        font-weight: bold;
-        font-size: 0.8em;
-    }
-    a.my-tab-txt{
-        font-size: 0.6em; 
-    }
-   .mesh-no-choice-txt{
+/* ========= small screen ========= */
+@media screen and (max-width: 600px) {
+  .build-type-txt {
+    font-weight: bold;
+    font-size: 0.8em;
+  }
+  a.my-tab-txt {
+    font-size: 0.6em;
+  }
+  .mesh-no-choice-txt {
     font-weight: bold;
     font-size: 0.7em;
-   }
-    
   }
-  .my-image-style{
-      height: 100px;
-  }
-  .my-footer-txt{
-      font-size: 0.6em;
-      font-weight: bold;
-  }
-  .mesh-no-choice-card{
-      height: 100%;
-  }
-  
+}
+
+/* ========= all screen ========= */
+.my-image-style {
+  height: 100px;
+}
+.my-footer-txt {
+  font-size: 0.6em;
+  font-weight: bold;
+}
+.mesh-no-choice-card {
+  height: 100%;
+}
+.active-selected-build {
+  background-color: black;
+  color: white;
+}
