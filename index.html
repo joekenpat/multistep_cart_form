@@ -27,7 +27,7 @@
               >
                 <li class="nav-item mr-0" role="presentation">
                   <a
-                    class="nav-link active my-tab-txt"
+                    class="nav-link my-tab-txt"
                     id="step_1"
                     data-toggle="pill"
                     href="#step_1_content"
@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-item mr-0" role="presentation">
                   <a
-                    class="nav-link my-tab-txt"
+                    class="nav-link active my-tab-txt"
                     id="step_2"
                     data-toggle="pill"
                     href="#step_2_content"
@@ -83,76 +83,27 @@
             <div class="card-body">
               <div class="tab-content" id="pills-tabContent">
                 <!-- ========= BUILD TYPE SECTION START HERE =========  -->
-                <div
-                  class="tab-pane fade show active"
-                  id="step_1_content"
-                  role="tabpanel"
-                >
+                <div class="tab-pane fade" id="step_1_content" role="tabpanel">
                   <!--  ========= BUILD TYPE ROW START HERE  =========  -->
                   <div class="row">
                     <p class="col-12 build-type-txt">Select your Layout Type</p>
-                    <div class="col-4 px-1">
-                      <div class="card">
-                        <div class="card-body text-center">
-                          <p class="build-type-txt mb-0">EMR</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-4 px-1">
-                      <div class="card">
-                        <div class="card-body text-center">
-                          <p class="build-type-txt mb-0">RMR</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-4 px-1">
-                      <div class="card">
-                        <div class="card-body text-center">
-                          <p class="build-type-txt mb-0">EME</p>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+                  <div class="row" id="build_layout_types"></div>
                   <!--  ========= BUILD TYPE ROW START HERE  =========  -->
                 </div>
                 <!-- ========= BUILD TYPE SECTION END HERE =========  -->
 
                 <!-- ========= EDGE  SECTION START HERE =========  -->
-                <div class="tab-pane fade" id="step_2_content" role="tabpanel">
-                  <p class="build-type-txt">Product</p>
-                  <!--  ========= EDGE  ROW START HERE  =========  -->
+                <div
+                  class="tab-pane fade show active"
+                  id="step_2_content"
+                  role="tabpanel"
+                >
                   <div class="row">
-                    <div class="col-4 px-1">
-                      <div class="card">
-                        <div class="text-center">
-                          <img
-                            class="card-img my-image-style"
-                            src="./assets/land.jpg"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-4 px-1">
-                      <div class="card">
-                        <div class="text-center">
-                          <img
-                            class="card-img my-image-style"
-                            src="./assets/land.jpg"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-4 px-1">
-                      <div class="card">
-                        <div class="text-center">
-                          <img
-                            class="card-img my-image-style"
-                            src="./assets/land.jpg"
-                          />
-                        </div>
-                      </div>
-                    </div>
+                    <p class="build-type-txt col-12">Product</p>
                   </div>
+                  <!--  ========= EDGE  ROW START HERE  =========  -->
+                  <div class="row" id="edge_product_list"></div>
                   <!--  ========= EDGE  ROW START HERE  =========  -->
                 </div>
                 <!-- ========= EDGE  SECTION END HERE =========  -->
@@ -181,5 +132,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/app.js"></script>
+    <script src="js/app2.js"></script>
   </body>
 </html>

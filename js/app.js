@@ -1,5 +1,6 @@
 const layoutTypes = ["EMR", "RMR", "EME"];
 
+let selectedLayoutType = "EMR";
 const layoutTypeSteps = {
   EMR: ["EDGE", "MESH", "ROOF"],
   RMR: ["ROOF", "MESH", "ROOF"],
@@ -32,13 +33,20 @@ const edgeProducts = [
   {
     id: "E1",
     name: "Trim",
-    image: "https://lorempisum.com/320/320/jpeg",
+    image: "./assets/land.jpg",
+    materials: ["default", "new_material"],
+    price: 133.83,
+  },
+  {
+    id: "E2",
+    name: "Roof Sheet",
+    image: "./assets/port.jpg",
     materials: ["default", "new_material"],
     price: 133.83,
   },
 ];
 
-const selectedEdge = {
+let selectedEdge = {
   id: "E1",
   name: "Trim",
   material: "new_material",
@@ -79,7 +87,7 @@ const meshProducts = [
   },
 ];
 
-const selectedMesh = {
+let selectedMesh = {
   id: "M1",
   name: "Fine Mesh",
   width: "2cm",
@@ -121,7 +129,7 @@ const roofProducts = [
   },
 ];
 
-const selectedRoof = {
+let selectedRoof = {
   id: "R1",
   name: "Corro",
   materials: "smooth",
