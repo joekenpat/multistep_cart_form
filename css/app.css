@@ -5,6 +5,10 @@
         font-weight: bold;
         font: 700;
     }
+    .mesh-no-choice-txt{
+        font-weight: bold;
+        font-size: 0.8em;
+       }
     
   }
 
@@ -17,12 +21,20 @@
     a.my-tab-txt{
         font-size: 0.6em; 
     }
+   .mesh-no-choice-txt{
+    font-weight: bold;
+    font-size: 0.7em;
+   }
     
   }
-
   .my-image-style{
       height: 100px;
   }
   .my-footer-txt{
-      font-size: 0.7em;
+      font-size: 0.6em;
+      font-weight: bold;
   }
+  .mesh-no-choice-card{
+      height: 100%;
+  }
+  
