@@ -8,8 +8,26 @@ $(document).ready(() => {
         selectedLayoutType = $(this).data("layout-id");
       });
     });
+  $("#edge_product_list")
+    .find("[data-product-id]")
+    .each(function () {
+      $(this).on("click", function () {
+        updateEdgeMaterialList($(this).data("product-id"));
+      });
+    });
 });
 
+const updateEdgeMaterialList = (e) => {
+  let sel = edgeProducts.find((x) => x.id == e).materials;
+  egdeMaterialSelect.find("option").not(":first").remove();
+  egdeMaterialSelect.append(edgeMaterials(sel));
+};
+const egdeMaterialSelect = $("#edge_material_select");
+let edgeMaterials = (materials = []) => {
+  return materials.map((x) => {
+    return `<option value="${x}">${x.replace("_"," ")}</option>`;
+  });
+};
 const layoutTypeContent = layoutTypes.map((x) => {
   return `<div class="col-4 px-1" data-layout-id="${x}">
   <div class="card" >
