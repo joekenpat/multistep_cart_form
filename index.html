@@ -1,117 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multi Auth Form</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/app.css" />
-  </head>
-  <body>
-    <div class="container-fluid h-100">
-      <div class="row align-items-center h-100">
-        <div class="col-12 col-md-10 col-lg-9 col mx-auto">
-          <div class="card text-center">
-            <div class="card-header p-2">
-              <ul
-                class="nav nav-pills nav-justified"
-                id="pills-tab"
-                role="tablist"
-              >
-                <li class="nav-item mr-2" role="presentation">
-                  <a
-                    class="nav-link active"
-                    id="step_1"
-                    data-toggle="pill"
-                    href="#step_1_content"
-                    role="tab"
-                    >BUILD</a
-                  >
-                </li>
-                <li class="nav-item mr-2" role="presentation">
-                  <a
-                    class="nav-link"
-                    id="step_2"
-                    data-toggle="pill"
-                    href="#step_2_content"
-                    role="tab"
-                    >EDGE</a
-                  >
-                </li>
-                <li class="nav-item mr-2" role="presentation">
-                  <a
-                    class="nav-link"
-                    id="step_3"
-                    data-toggle="pill"
-                    href="#step_3_content"
-                    role="tab"
-                    >MESH</a
-                  >
-                </li>
-                <li class="nav-item mr-2" role="presentation">
-                  <a
-                    class="nav-link"
-                    id="step_4"
-                    data-toggle="pill"
-                    href="#step_4_content"
-                    role="tab"
-                    >ROOF</a
-                  >
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a
-                    class="nav-link"
-                    id="step_5"
-                    data-toggle="pill"
-                    href="#step_5_content"
-                    role="tab"
-                    >SUMMARY</a
-                  >
-                </li>
-              </ul>
+</head>
+
+<body>
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-10 mx-auto">
+                <div class="card text-center">
+
+                    <!-- ========= STEPER SECTION START HERE ========= -->
+                    <div class="card-header">
+                        <ul class="nav nav-pills nav-justified card-header-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item mr-2" role="presentation">
+                                <a class="nav-link active" id="step_1" data-toggle="pill" href="#step_1_content"
+                                    role="tab">BUILD</a>
+                            </li>
+                            <li class="nav-item mr-2" role="presentation">
+                                <a class="nav-link" id="step_2" data-toggle="pill" href="#step_2_content"
+                                    role="tab">EDGE</a>
+                            </li>
+                            <li class="nav-item mr-2" role="presentation">
+                                <a class="nav-link" id="step_3" data-toggle="pill" href="#step_3_content"
+                                    role="tab">MESH</a>
+                            </li>
+                            <li class="nav-item mr-2" role="presentation">
+                                <a class="nav-link" id="step_4" data-toggle="pill" href="#step_4_content"
+                                    role="tab">ROOF</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="step_5" data-toggle="pill" href="#step_5_content"
+                                    role="tab">SUMMARY</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- =========  STEPER SECTION END HERE =========  -->
+
+                    <!-- ========= BUULD TYPE SECTION START HERE =========  -->
+                    <div class="card-body">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="step_1_content" role="tabpanel">
+                                select build layout
+                            </div>
+                            <div class="tab-pane fade" id="step_2_content" role="tabpanel">
+                                EDGE FORM
+                            </div>
+                            <div class="tab-pane fade" id="step_3_content" role="tabpanel">
+                                MESH FORM
+                            </div>
+                            <div class="tab-pane fade" id="step_4_content" role="tabpanel">
+                                ROOF FORM
+                            </div>
+                            <div class="tab-pane fade" id="step_5_content" role="tabpanel">
+                                SUMMARY/CHECKOUT
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========= BUULD TYPE SECTION START HERE =========  -->
+                    
+                </div>
             </div>
-            <div class="card-body">
-              <div class="tab-content" id="pills-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="step_1_content"
-                  role="tabpanel"
-                >
-                  select build layout
-                </div>
-                <div class="tab-pane fade" id="step_2_content" role="tabpanel">
-                  EDGE FORM
-                </div>
-                <div class="tab-pane fade" id="step_3_content" role="tabpanel">
-                  MESH FORM
-                </div>
-                <div class="tab-pane fade" id="step_4_content" role="tabpanel">
-                  ROOF FORM
-                </div>
-                <div class="tab-pane fade" id="step_5_content" role="tabpanel">
-                  SUMMARY/CHECKOUT
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-      crossorigin="anonymous"
-    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
-  </body>
+</body>
+
 </html>
