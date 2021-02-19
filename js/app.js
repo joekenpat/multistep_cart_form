@@ -36,6 +36,7 @@ const edgeProducts = [
     image: "./assets/land.jpg",
     materials: ["default", "new_material"],
     price: 133.83,
+    colors: [...colourCodes],
   },
   {
     id: "E2",
@@ -43,6 +44,15 @@ const edgeProducts = [
     image: "./assets/port.jpg",
     materials: ["old", "font_material"],
     price: 133.83,
+    colors: [...colourCodes],
+  },
+  {
+    id: "E3",
+    name: "Ceil Pan",
+    image: "./assets/land.jpg",
+    materials: ["pan", "rusted_steel"],
+    price: 133.83,
+    colors: [...colourCodes],
   },
 ];
 
@@ -63,6 +73,7 @@ const selectEdgeProduct = (e) => {
     color: colourCodes[0],
     quantity: 1,
   };
+
 };
 
 const selectEdgeProductMaterial = (e) => {
@@ -84,6 +95,7 @@ const meshProducts = [
     image: "https://lorempisum.com/320/320/jpeg",
     widths: ["1cm", "2cm", "4cm"],
     price: 33.83,
+    colors: [...colourCodes],
   },
 ];
 

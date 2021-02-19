@@ -15,17 +15,27 @@ $(document).ready(() => {
         updateEdgeMaterialList($(this).data("product-id"));
       });
     });
+
+  $("#edge_material_color_selector").on("click", function () {
+    $("#edge_material_color_picker").toggleClass("show");
+  });
 });
 
 const updateEdgeMaterialList = (e) => {
-  let sel = edgeProducts.find((x) => x.id == e).materials;
+  let sel = edgeProducts.find((x) => x.id == e);
   egdeMaterialSelect.find("option").not(":first").remove();
-  egdeMaterialSelect.append(edgeMaterials(sel));
+  egdeMaterialSelect.append(edgeMaterials(sel.materials));
+  renderColorPallete(
+    sel.colors,
+    "#edge_material_color_picker",
+    "#edge_material_color_selector"
+  );
 };
+
 const egdeMaterialSelect = $("#edge_material_select");
 let edgeMaterials = (materials = []) => {
   return materials.map((x) => {
-    return `<option value="${x}">${x.replace("_"," ")}</option>`;
+    return `<option value="${x}">${x.replace("_", " ")}</option>`;
   });
 };
 const layoutTypeContent = layoutTypes.map((x) => {
@@ -39,8 +49,8 @@ const layoutTypeContent = layoutTypes.map((x) => {
 });
 
 const edgeProductList = edgeProducts.map((x) => {
-  return `<div class="col-4 px-1">
-  <div class="card" data-product-id="${x.id}">
+  return `<div class="col-4 px-1" data-product-id="${x.id}">
+  <div class="card" >
     <div class="card-body p-0 text-center">
       <img
         class="card-img-top my-image-style"

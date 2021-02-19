@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/color_picker.css" />
   </head>
 
   <body>
@@ -101,12 +102,27 @@
                   <p class="build-type-txt col-12">Product</p>
                   <div class="row" id="edge_product_list"></div>
                   <div class="row">
-                    <div class="col-4 px-1 mt-5">
+                    <div class="col-6 px-1 mt-5">
                       <select class="custom-select" id="edge_material_select">
                         <option selected>--Select Material --</option>
                       </select>
                     </div>
-                    <div class="col-8 px-1 mt-5"></div>
+                    <div class="col-6 px-1 mt-5">
+                      <div
+                        id="edge_material_color_selector"
+                        class="card d-flex align-items-center"
+                        data-material-color="#ffffff"
+                        style="height: 39px; cursor: pointer"
+                      >
+                        <span class="my-auto font-weight-bolder"
+                          >Change Color</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      id="edge_material_color_picker"
+                      class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
+                    ></div>
                   </div>
                 </div>
                 <!-- ========= EDGE  SECTION END HERE =========  -->
@@ -140,5 +156,6 @@
     ></script>
     <script src="js/app.js"></script>
     <script src="js/app2.js"></script>
+    <script src="js/util.js"></script>
   </body>
 </html>
