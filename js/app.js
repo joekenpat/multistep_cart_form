@@ -41,7 +41,7 @@ const edgeProducts = [
     id: "E2",
     name: "Roof Sheet",
     image: "./assets/port.jpg",
-    materials: ["default", "new_material"],
+    materials: ["old", "font_material"],
     price: 133.83,
   },
 ];
