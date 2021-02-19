@@ -3,8 +3,8 @@ const layoutTypes = ["EMR", "RMR", "EME"];
 let selectedLayoutType = "EMR";
 const layoutTypeSteps = {
   EMR: ["EDGE", "MESH", "ROOF"],
-  RMR: ["ROOF", "MESH", "ROOF"],
-  EME: ["EDGE", "MESH", "EDGE"],
+  RMR: ["ROOF_1", "MESH", "ROOF_2"],
+  EME: ["EDGE_1", "MESH", "EDGE_2"],
 };
 const colourCodes = [
   "#6b7176",
