@@ -4,6 +4,10 @@
     font-weight: bold;
     font: 700;
   }
+  .mesh-no-choice-txt {
+    font-weight: bold;
+    font-size: 0.8em;
+  }
 }
 
 /* ========= small screen ========= */
@@ -15,11 +19,33 @@
   a.my-tab-txt {
     font-size: 0.6em;
   }
+  .mesh-no-choice-txt {
+    font-weight: bold;
+    font-size: 0.7em;
+  }
 }
 
+/* ========= all screen ========= */
 .my-image-style {
   height: 100px;
 }
 .my-footer-txt {
-  font-size: 0.7em;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+.mesh-no-choice-card {
+  height: 100%;
+}
+.active-selected-build {
+  background-color: black;
+  color: white;
+}
+.select-box-label{
+  font-weight: bold;
+  font-size: 0.8em;
+ text-align: start !important;
+}
+
+.my-card{
+  cursor: pointer;
 }

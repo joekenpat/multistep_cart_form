@@ -28,7 +28,7 @@
               >
                 <li class="nav-item mr-0" role="presentation">
                   <a
-                    class="nav-link my-tab-txt"
+                    class="nav-link my-tab-txt active"
                     id="step_1"
                     data-toggle="pill"
                     href="#step_1_content"
@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item mr-0" role="presentation">
                   <a
-                    class="nav-link active my-tab-txt"
+                    class="nav-link my-tab-txt disabled"
                     id="step_2"
                     data-toggle="pill"
                     href="#step_2_content"
@@ -84,22 +84,30 @@
             <div class="card-body">
               <div class="tab-content" id="pills-tabContent">
                 <!-- ========= BUILD TYPE SECTION START HERE =========  -->
-                <div class="tab-pane fade" id="step_1_content" role="tabpanel">
+                <div
+                  class="tab-pane fade show active"
+                  id="step_1_content"
+                  role="tabpanel"
+                >
                   <!--  ========= BUILD TYPE ROW START HERE  =========  -->
                   <div class="row">
-                    <p class="col-12 build-type-txt">Select your Layout Type</p>
+                    <div class="col-12">
+                      <h5 class="font-weight-bold mb-0">BUILD</h5>
+                      <p class="build-type-txt">Select your Layout Type</p>
+                    </div>
                   </div>
                   <div class="row" id="build_layout_types"></div>
-                  <!--  ========= BUILD TYPE ROW START HERE  =========  -->
+                  <!-- active-selected-build -->
                 </div>
                 <!-- ========= BUILD TYPE SECTION END HERE =========  -->
                 <!-- ========= EDGE  SECTION START HERE =========  -->
-                <div
-                  class="tab-pane fade show active"
-                  id="step_2_content"
-                  role="tabpanel"
-                >
-                  <p class="build-type-txt col-12">Product</p>
+                <div class="tab-pane fade" id="step_2_content" role="tabpanel">
+                  <div class="row">
+                    <div class="col-12">
+                      <h5 class="font-weight-bold mb-0">EDGE(E)</h5>
+                      <p class="build-type-txt">Select a product</p>
+                    </div>
+                  </div>
                   <div class="row" id="edge_product_list"></div>
                   <div class="row">
                     <div class="col-6 px-1 mt-5">
@@ -127,12 +135,81 @@
                 </div>
                 <!-- ========= EDGE  SECTION END HERE =========  -->
 
+                <!-- ========= MESH  SECTION START HERE =========  -->
                 <div class="tab-pane fade" id="step_3_content" role="tabpanel">
-                  MESH
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="font-weight-bold mb-0">MESH(M)</h5>
+                        <p class="build-type-txt">Select a product</p>
+                      </div>
+                    </div>
+                  <div class="row" id="mesh_product_list"></div>
+                  <div class="row">
+                    <div class="col-6 px-1 mt-5">
+                      <select class="custom-select" id="mesh_width_select">
+                        <option selected>-- Select Width --</option>
+                      </select>
+                    </div>
+                    <div class="col-6 px-1 mt-5">
+                      <div
+                        id="mesh_material_color_selector"
+                        class="card d-flex align-items-center"
+                        data-material-color="#ffffff"
+                        style="height: 39px; cursor: pointer"
+                      >
+                        <span class="my-auto font-weight-bolder"
+                          >Change Color</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      id="mesh_material_color_picker"
+                      class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
+                    ></div>
+                  </div>
                 </div>
+                <!-- ========= MESH  SECTION END HERE =========  -->
+
+                <!-- ========= ROOF  SECTION START  HERE =========  -->
                 <div class="tab-pane fade" id="step_4_content" role="tabpanel">
-                  ROOF FORM
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="font-weight-bold mb-0">ROOF(R)</h5>
+                        <p class="build-type-txt">Select a product</p>
+                      </div>
+                    </div>
+                  <div class="row" id="roof_product_list"></div>
+                  <div class="row mt-4">
+                    <div class="col-6 px-1 mb-2">
+                      <select class="custom-select" id="roof_config_select">
+                        <option selected>-- Config --</option>
+                      </select>
+                    </div>
+                    <div class="col-6 px-1">
+                      <select class="custom-select" id="roof_material_select">
+                        <option selected>-- Select Material --</option>
+                      </select>
+                    </div>
+                    <div class="col-6 px-1">
+                      <div
+                        id="roof_material_color_selector"
+                        class="card d-flex align-items-center"
+                        data-material-color="#ffffff"
+                        style="height: 39px; cursor: pointer"
+                      >
+                        <span class="my-auto font-weight-bolder"
+                          >Change Color</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      id="roof_material_color_picker"
+                      class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
+                    ></div>
+                  </div>
                 </div>
+                <!-- ========= ROOF  SECTION END HERE =========  -->
+
                 <div class="tab-pane fade" id="step_5_content" role="tabpanel">
                   SUMMARY/CHECKOUT
                 </div>

@@ -1,8 +1,8 @@
 const renderColorPallete = (colors, ref, indicator) => {
   $color_list = [...colors];
-  if ($(`${ref} > .color-picker-wrap`).length == 0) {
-    $(`${ref}`).append('<div class="color-picker-wrap"></div>');
-  }
+  $(`${ref} > .color-picker-wrap`).remove();
+  $(`${ref}`).append('<div class="color-picker-wrap"></div>');
+
   $(".color-picker-wrap").each(function () {
     var self = $(this);
     if (self.parent().hasClass("cp-sm")) {
@@ -27,8 +27,8 @@ const renderColorPallete = (colors, ref, indicator) => {
   });
 
   $(`${ref}`).on("click", "li", function () {
-    var self = $(this);
-    var color = rgb2hex(self.css("backgroundColor"));
+    let self = $(this);
+    let color = rgb2hex(self.css("backgroundColor"));
     $(`${indicator}`).css("backgroundColor", color);
     if (!self.hasClass("add_new")) {
       if (!self.hasClass("active")) {

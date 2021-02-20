@@ -1,6 +1,6 @@
 const layoutTypes = ["EMR", "RMR", "EME"];
 
-let selectedLayoutType = "EMR";
+let selectedLayoutType = "";
 const layoutTypeSteps = {
   EMR: ["EDGE", "MESH", "ROOF"],
   RMR: ["ROOF_1", "MESH", "ROOF_2"],
@@ -56,13 +56,7 @@ const edgeProducts = [
   },
 ];
 
-let selectedEdge = {
-  id: "E1",
-  name: "Trim",
-  material: "new_material",
-  color: "#545b54",
-  quantity: 3,
-};
+let selectedEdge = (selectedMesh = selectedRoof = {});
 
 const selectEdgeProduct = (e) => {
   let sel = edgeProducts.find((x) => x.id == $(e).data("product_id"));
@@ -73,7 +67,6 @@ const selectEdgeProduct = (e) => {
     color: colourCodes[0],
     quantity: 1,
   };
-
 };
 
 const selectEdgeProductMaterial = (e) => {
@@ -92,20 +85,12 @@ const meshProducts = [
   {
     id: "M1",
     name: "Fine Mesh",
-    image: "https://lorempisum.com/320/320/jpeg",
+    image: "./assets/land.jpg",
     widths: ["1cm", "2cm", "4cm"],
     price: 33.83,
     colors: [...colourCodes],
   },
 ];
-
-let selectedMesh = {
-  id: "M1",
-  name: "Fine Mesh",
-  width: "2cm",
-  color: "#88a0a6",
-  quantity: 3,
-};
 
 const selectMeshProduct = (e) => {
   let sel = meshProducts.find((x) => x.id == $(e).data("product_id"));
@@ -118,8 +103,8 @@ const selectMeshProduct = (e) => {
   };
 };
 
-const selectMeshProductMaterial = (e) => {
-  selectedMesh = { ...selectedEdge, material: e.value };
+const selectMeshProductWidth = (e) => {
+  selectedMesh = { ...selectedMesh, width: e.value };
 };
 
 const selectMeshProductQuantity = (e) => {
@@ -134,21 +119,13 @@ const roofProducts = [
   {
     id: "R1",
     name: "Corro",
-    image: "https://lorempisum.com/320/320/jpeg",
+    image: "./assets/land.jpg",
     materials: ["plain", "smooth"],
     price: 33.83,
     extraConfig: ["PM-1", "PM-2", "CA-4"],
+    colors: [...colourCodes],
   },
 ];
-
-let selectedRoof = {
-  id: "R1",
-  name: "Corro",
-  materials: "smooth",
-  color: "#33393c",
-  extraConfig: "PM-2",
-  quantity: 3,
-};
 
 const selectRoofProduct = (e) => {
   let sel = roofProducts.find((x) => x.id == $(e).data("product_id"));
