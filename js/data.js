@@ -379,7 +379,7 @@ const layoutTypeContent = buildTypes.map((x) => {
 });
 
 const edgeProductList = edgeData.map(({ id, image, name }) => {
-  return `<div class="col-4 p-1">
+  return `<div class="col-xl-2 col-lg-3 col-md-3 col-3 p-1">
   <div class="card  my-card" data-edge-category-id="${id}">
     <div class="card-body p-0 text-center">
       <img
@@ -388,14 +388,14 @@ const edgeProductList = edgeData.map(({ id, image, name }) => {
       />
     </div>
     <div
-      class="card-footer text-center p-1 my-footer-txt text-bold"
+      class="card-footer text-center p-0 my-footer-txt text-bold"
     >${name}</div>
   </div>
 </div>`;
 });
 
 const meshProductList = meshData.map(({ id, image, name }) => {
-  return `<div class="col-4 p-1">
+  return `<div class="col-lg-2 col-md-3 col-3 p-1">
   <div class="card  my-card" data-mesh-category-id="${id}">
     <div class="card-body p-0 text-center">
       <img
@@ -404,14 +404,14 @@ const meshProductList = meshData.map(({ id, image, name }) => {
       />
     </div>
     <div
-      class="card-footer text-center p-1 my-footer-txt text-bold"
+      class="card-footer text-center p-0 my-footer-txt text-bold"
     >${name}</div>
   </div>
   </div>`;
 });
 
 const roofProductList = roofData.map(({ id, image, name }) => {
-  return `<div class="col-4 p-1">
+  return `<div class="col-xl-2 col-lg-3 col-md-3 col-3 p-1">
   <div class="card  my-card" data-roof-category-id="${id}">
     <div class="card-body p-0 text-center">
       <img

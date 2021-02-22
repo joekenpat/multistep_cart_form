@@ -3,6 +3,16 @@ $(document).ready(() => {
   $("#edge_1_category_list, #edge_2_category_list,#edge_3_product_list").html(
     edgeProductList
   );
+  $("#changeLayout").on("click", function () {
+    $("#step_1_content").collapse("show");
+    $("#step_2_content").collapse("hide");
+    $("#step_3_content").collapse("hide");
+  });
+  $("#viewSummary").on("click", function () {
+    $("#step_1_content").collapse("hide");
+    $("#step_2_content").collapse("hide");
+    $("#step_3_content").collapse("show");
+  });
   $("#roof_1_category_list, #roof_2_category_list").html(roofProductList);
   $("#mesh_1_category_list").html(meshProductList);
   $("#build_layout_types")
@@ -36,6 +46,8 @@ $(document).ready(() => {
         } else {
           self.toggleClass("active-selected-build", true);
         }
+        $("#product_nav_actions").toggleClass("d-none", false);
+        $("#step_2_content").collapse("show");
       });
     });
 
@@ -45,7 +57,7 @@ $(document).ready(() => {
       $(this).on("click", function () {
         let self = $(this);
         console.log(self);
-        updateProductList(self.data("edge-category-id"),'edge',1);
+        updateProductList(self.data("edge-category-id"), "edge", 1);
         if (!self.hasClass("active-selected-build")) {
           self
             .parent()
