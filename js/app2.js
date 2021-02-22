@@ -71,16 +71,77 @@ $(document).ready(() => {
       });
     });
 
+  $("#edge_2_category_list")
+    .find("[data-edge-category-id]")
+    .each(function () {
+      $(this).on("click", function () {
+        let self = $(this);
+        console.log(self);
+        updateProductList(self.data("edge-category-id"), "edge", 2);
+        if (!self.hasClass("active-selected-build")) {
+          self
+            .parent()
+            .siblings()
+            .children(".card")
+            .removeClass("active-selected-build");
+          self.toggleClass("active-selected-build");
+        } else {
+          self.toggleClass("active-selected-build");
+        }
+      });
+    });
+
+  $("#roof_1_category_list")
+    .find("[data-roof-category-id]")
+    .each(function () {
+      $(this).on("click", function () {
+        let self = $(this);
+        console.log(self);
+        updateProductList(self.data("roof-category-id"), "roof", 1);
+        if (!self.hasClass("active-selected-build")) {
+          self
+            .parent()
+            .siblings()
+            .children(".card")
+            .removeClass("active-selected-build");
+          self.toggleClass("active-selected-build");
+        } else {
+          self.toggleClass("active-selected-build");
+        }
+      });
+    });
+
+  $("#roof_2_category_list")
+    .find("[data-roof-category-id]")
+    .each(function () {
+      $(this).on("click", function () {
+        let self = $(this);
+        console.log(self);
+        updateProductList(self.data("roof-category-id"), "roof", 2);
+        if (!self.hasClass("active-selected-build")) {
+          self
+            .parent()
+            .siblings()
+            .children(".card")
+            .removeClass("active-selected-build");
+          self.toggleClass("active-selected-build");
+        } else {
+          self.toggleClass("active-selected-build");
+        }
+      });
+    });
+
   $("#edge_material_color_selector").on("click", function () {
     $("#edge_material_color_picker").toggleClass("show");
   });
 
-  $("#mesh_product_list")
-    .find("[data-product-id]")
+  $("#mesh_1_category_list")
+    .find("[data-mesh-category-id]")
     .each(function () {
-      $(this).on("click", ".card", function () {
+      $(this).on("click", function () {
         let self = $(this);
-        updateMeshMaterialList(self.parent().data("product-id"));
+        console.log(self);
+        updateProductList(self.data("mesh-category-id"), "mesh", 1);
         if (!self.hasClass("active-selected-build")) {
           self
             .parent()
@@ -98,33 +159,15 @@ $(document).ready(() => {
     $("#mesh_material_color_picker").toggleClass("show");
   });
 
-  $("#roof_product_list")
-    .find("[data-product-id]")
-    .each(function () {
-      $(this).on("click", ".card", function () {
-        let self = $(this);
-        updateRoofMaterialList(self.parent().data("product-id"));
-        if (!self.hasClass("active-selected-build")) {
-          self
-            .parent()
-            .siblings()
-            .children(".card")
-            .removeClass("active-selected-build");
-          self.toggleClass("active-selected-build");
-        } else {
-          self.toggleClass("active-selected-build");
-        }
-      });
-    });
-
-  $("#roof_material_color_selector").on("click", function () {
-    $("#roof_material_color_picker").toggleClass("show");
-  });
 });
 
 const updateProductList = (cat_id, buildType, buildTypeNumber) => {
   let cat = edgeData.find((x) => x.id == cat_id);
+  $("#step_2_content .custom-select").attr("disabled", true);
+  $("#step_2_content .custom-select").toggleClass("disabled", true);
   let productSelectBox = $(`#${buildType}_${buildTypeNumber}_product_select`);
+  productSelectBox.removeAttr("disabled");
+  productSelectBox.toggleClass("disabled", false);
   productSelectBox.find("option").not(":first").remove();
   productSelectBox.append(categoryProductList(cat.products));
   // renderColorPallete(
