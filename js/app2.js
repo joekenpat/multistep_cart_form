@@ -1,17 +1,31 @@
 $(document).ready(() => {
   $("#build_layout_types").html(layoutTypeContent);
-  $("#edge_product_list").html(edgeProductList);
-  $("#mesh_product_list").html(meshProductList);
-  $("#roof_product_list").html(roofProductList);
+  $("#edge_1_category_list, #edge_2_category_list,#edge_3_product_list").html(
+    edgeProductList
+  );
+  $("#roof_1_category_list, #roof_2_category_list").html(roofProductList);
+  $("#mesh_1_category_list").html(meshProductList);
   $("#build_layout_types")
     .find("[data-layout-id]")
     .each(function () {
-      $(this).on("click", ".card", function () {
+      $(this).on("click", function () {
         if ($("#step_2").hasClass("disabled")) {
           $("#step_2").toggleClass("disabled", false);
         }
         let self = $(this);
-        selectedLayoutType = $(this).data("layout-id");
+        selectedBuildType = $(this).data("layout-id");
+        console.log(selectedBuildType);
+        $("#step_2_content")
+          .children()
+          .each(function () {
+            $(this).toggleClass("d-none", true);
+          });
+        buildTypeMap[selectedBuildType].map((x) => {
+          console.log(x);
+          $(
+            `#step_2_content .container-fluid[data-layout-type="${x.name}"][data-layout-number="${x.number}"]`
+          ).toggleClass("d-none", false);
+        });
         if (!self.hasClass("active-selected-build")) {
           self
             .parent()
@@ -24,15 +38,14 @@ $(document).ready(() => {
         }
       });
     });
-  $("#edge_product_list")
-    .find("[data-product-id]")
+
+  $("#edge_1_category_list")
+    .find("[data-edge-category-id]")
     .each(function () {
-      $(this).on("click", ".card", function () {
+      $(this).on("click", function () {
         let self = $(this);
-        if ($("#step_2").hasClass("disabled")) {
-          $("#step_2").toggleClass("disabled", false);
-        }
-        updateEdgeMaterialList(self.parent().data("product-id"));
+        console.log(self);
+        updateProductList(self.data("edge-category-id"),'edge',1);
         if (!self.hasClass("active-selected-build")) {
           self
             .parent()
@@ -97,26 +110,34 @@ $(document).ready(() => {
   });
 });
 
-const updateEdgeMaterialList = (e) => {
-  let sel = edgeProducts.find((x) => x.id == e);
-  egdeMaterialSelect.find("option").not(":first").remove();
-  egdeMaterialSelect.append(edgeMaterials(sel.materials));
-  renderColorPallete(
-    sel.colors,
-    "#edge_material_color_picker",
-    "#edge_material_color_selector"
-  );
+const updateProductList = (cat_id, buildType, buildTypeNumber) => {
+  let cat = edgeData.find((x) => x.id == cat_id);
+  let productSelectBox = $(`#${buildType}_${buildTypeNumber}_product_select`);
+  productSelectBox.find("option").not(":first").remove();
+  productSelectBox.append(categoryProductList(cat.products));
+  // renderColorPallete(
+  //   sel.colors,
+  //   "#edge_material_color_picker",
+  //   "#edge_material_color_selector"
+  // );
 };
 
-const updateMeshMaterialList = (e) => {
-  let sel = meshProducts.find((x) => x.id == e);
-  meshWidthSelect.find("option").not(":first").remove();
-  meshWidthSelect.append(meshWidths(sel.widths));
-  renderColorPallete(
-    sel.colors,
-    "#mesh_material_color_picker",
-    "#mesh_material_color_selector"
-  );
+const updateProductColorList = (cat_id, buildType, buildTypeNumber) => {
+  let sel = edgeData.find((x) => x.id == cat_id);
+  let productSelectBox = $(`#${buildType}_${buildTypeNumber}_color_select`);
+  productSelectBox.find("option").not(":first").remove();
+  productSelectBox.append(categoryProductList(sel.products));
+  // renderColorPallete(
+  //   sel.colors,
+  //   "#edge_material_color_picker",
+  //   "#edge_material_color_selector"
+  // );
+};
+
+let categoryProductList = (products = []) => {
+  return products.map((x) => {
+    return `<option value="${x.id}">${x.name}</option>`;
+  });
 };
 
 const updateRoofMaterialList = (e) => {
@@ -136,11 +157,6 @@ const updateRoofMaterialList = (e) => {
 };
 
 const egdeMaterialSelect = $("#edge_material_select");
-let edgeMaterials = (materials = []) => {
-  return materials.map((x) => {
-    return `<option value="${x}">${x.replace("_", " ")}</option>`;
-  });
-};
 
 const meshWidthSelect = $("#mesh_width_select");
 let meshWidths = (withds = []) => {
@@ -162,60 +178,3 @@ let roofConfigs = (configs = []) => {
     return `<option value="${x}">${x}</option>`;
   });
 };
-
-const layoutTypeContent = layoutTypes.map((x) => {
-  return `<div class="col-4 p-1" data-layout-id="${x}">
-  <div class="card my-card">
-    <div class="card-body text-center">
-      <p class="build-type-txt mb-0">${x}</p>
-    </div>
-  </div>
-</div>`;
-});
-
-const edgeProductList = edgeProducts.map((x) => {
-  return `<div class="col-4 p-1" data-product-id="${x.id}">
-  <div class="card  my-card">
-    <div class="card-body p-0 text-center">
-      <img
-        class="card-img-top my-image-style"
-        src="${x.image}"
-      />
-    </div>
-    <div
-      class="card-footer text-center p-1 my-footer-txt text-bold"
-    >${x.name}</div>
-  </div>
-</div>`;
-});
-
-const meshProductList = meshProducts.map((x) => {
-  return `<div class="col-4 p-1" data-product-id="${x.id}">
-  <div class="card  my-card">
-    <div class="card-body p-0 text-center">
-      <img
-        class="card-img-top my-image-style"
-        src="${x.image}"
-      />
-    </div>
-    <div
-      class="card-footer text-center p-1 my-footer-txt text-bold"
-    >${x.name}</div>
-  </div>
-  </div>`;
-});
-const roofProductList = roofProducts.map((x) => {
-  return `<div class="col-4 p-1" data-product-id="${x.id}">
-  <div class="card  my-card">
-    <div class="card-body p-0 text-center">
-      <img
-        class="card-img-top my-image-style"
-        src="${x.image}"
-      />
-    </div>
-    <div
-      class="card-footer text-center p-1 my-footer-txt text-bold"
-    >${x.name}</div>
-  </div>
-</div>`;
-});

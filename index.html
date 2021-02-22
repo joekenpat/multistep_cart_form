@@ -56,16 +56,6 @@
                     >3</a
                   >
                 </li>
-                <li class="nav-item mr-0" role="presentation">
-                  <a
-                    class="nav-link my-tab-txt"
-                    id="step_4"
-                    data-toggle="pill"
-                    href="#step_4_content"
-                    role="tab"
-                    >4</a
-                  >
-                </li>
                 <li class="nav-item" role="presentation">
                   <a
                     class="nav-link my-tab-txt"
@@ -100,116 +90,202 @@
                   <!-- active-selected-build -->
                 </div>
                 <!-- ========= BUILD TYPE SECTION END HERE =========  -->
-                <!-- ========= EDGE  SECTION START HERE =========  -->
+                <!-- ========= Product  SECTION START HERE =========  -->
                 <div class="tab-pane fade" id="step_2_content" role="tabpanel">
-                  <div class="row">
-                    <div class="col-12">
-                      <h5 class="font-weight-bold mb-0">EDGE(E)</h5>
-                      <p class="build-type-txt">Select a product</p>
-                    </div>
-                  </div>
-                  <div class="row" id="edge_product_list"></div>
-                  <div class="row">
-                    <div class="col-6 px-1 mt-5">
-                      <select class="custom-select" id="edge_material_select">
-                        <option selected>--Select Material --</option>
-                      </select>
-                    </div>
-                    <div class="col-6 px-1 mt-5">
-                      <div
-                        id="edge_material_color_selector"
-                        class="card d-flex align-items-center"
-                        data-material-color="#ffffff"
-                        style="height: 39px; cursor: pointer"
-                      >
-                        <span class="my-auto font-weight-bolder"
-                          >Change Color</span
-                        >
-                      </div>
-                    </div>
-                    <div
-                      id="edge_material_color_picker"
-                      class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
-                    ></div>
-                  </div>
-                </div>
-                <!-- ========= EDGE  SECTION END HERE =========  -->
-
-                <!-- ========= MESH  SECTION START HERE =========  -->
-                <div class="tab-pane fade" id="step_3_content" role="tabpanel">
+                  <div
+                    class="container-fluid d-none"
+                    data-layout-type="edge"
+                    data-layout-number="1"
+                  >
                     <div class="row">
                       <div class="col-12">
-                        <h5 class="font-weight-bold mb-0">MESH(M)</h5>
+                        <h5 class="font-weight-bold mb-0">EDGE(E) 1</h5>
                         <p class="build-type-txt">Select a product</p>
                       </div>
                     </div>
-                  <div class="row" id="mesh_product_list"></div>
-                  <div class="row">
-                    <div class="col-6 px-1 mt-5">
-                      <select class="custom-select" id="mesh_width_select">
-                        <option selected>-- Select Width --</option>
-                      </select>
-                    </div>
-                    <div class="col-6 px-1 mt-5">
-                      <div
-                        id="mesh_material_color_selector"
-                        class="card d-flex align-items-center"
-                        data-material-color="#ffffff"
-                        style="height: 39px; cursor: pointer"
-                      >
-                        <span class="my-auto font-weight-bolder"
-                          >Change Color</span
+                    <div class="row" id="edge_1_category_list"></div>
+                    <div class="row">
+                      <div class="col-6 px-1 mt-5">
+                        <select
+                          class="custom-select"
+                          id="edge_1_product_select"
                         >
+                          <option selected>--Select Material --</option>
+                        </select>
                       </div>
+                      <div class="col-6 px-1 mt-5">
+                        <div
+                          id="edge_1_product_color_selector"
+                          class="card d-flex align-items-center"
+                          data-material-color="#ffffff"
+                          style="height: 39px; cursor: pointer"
+                        >
+                          <span class="my-auto font-weight-bolder"
+                            >Change Color</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        id="edge_material_color_picker"
+                        class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
+                      ></div>
                     </div>
-                    <div
-                      id="mesh_material_color_picker"
-                      class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
-                    ></div>
                   </div>
-                </div>
-                <!-- ========= MESH  SECTION END HERE =========  -->
-
-                <!-- ========= ROOF  SECTION START  HERE =========  -->
-                <div class="tab-pane fade" id="step_4_content" role="tabpanel">
+                  <div
+                    class="container-fluid"
+                    data-layout-type="mesh"
+                    data-layout-number="1"
+                  >
                     <div class="row">
                       <div class="col-12">
-                        <h5 class="font-weight-bold mb-0">ROOF(R)</h5>
+                        <h5 class="font-weight-bold mb-0">MESH(M) 1</h5>
                         <p class="build-type-txt">Select a product</p>
                       </div>
                     </div>
-                  <div class="row" id="roof_product_list"></div>
-                  <div class="row mt-4">
-                    <div class="col-6 px-1 mb-2">
-                      <select class="custom-select" id="roof_config_select">
-                        <option selected>-- Config --</option>
-                      </select>
-                    </div>
-                    <div class="col-6 px-1">
-                      <select class="custom-select" id="roof_material_select">
-                        <option selected>-- Select Material --</option>
-                      </select>
-                    </div>
-                    <div class="col-6 px-1">
-                      <div
-                        id="roof_material_color_selector"
-                        class="card d-flex align-items-center"
-                        data-material-color="#ffffff"
-                        style="height: 39px; cursor: pointer"
-                      >
-                        <span class="my-auto font-weight-bolder"
-                          >Change Color</span
+                    <div class="row" id="mesh_1_category_list"></div>
+                    <div class="row">
+                      <div class="col-6 px-1 mt-5">
+                        <select class="custom-select" id="mesh_width_select">
+                          <option selected>-- Select Width --</option>
+                        </select>
+                      </div>
+                      <div class="col-6 px-1 mt-5">
+                        <div
+                          id="mesh_material_color_selector"
+                          class="card d-flex align-items-center"
+                          data-material-color="#ffffff"
+                          style="height: 39px; cursor: pointer"
                         >
+                          <span class="my-auto font-weight-bolder"
+                            >Change Color</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        id="mesh_material_color_picker"
+                        class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
+                      ></div>
+                    </div>
+                  </div>
+                  <div
+                    class="container-fluid d-none"
+                    data-layout-type="edge"
+                    data-layout-number="2"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="font-weight-bold mb-0">EDGE(E) 2</h5>
+                        <p class="build-type-txt">Select a product</p>
                       </div>
                     </div>
-                    <div
-                      id="roof_material_color_picker"
-                      class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
-                    ></div>
+                    <div class="row" id="edge_2_category_list"></div>
+                    <div class="row">
+                      <div class="col-6 px-1 mt-5">
+                        <select class="custom-select" id="edge_material_select">
+                          <option selected>--Select Material --</option>
+                        </select>
+                      </div>
+                      <div class="col-6 px-1 mt-5">
+                        <div
+                          id="edge_material_color_selector"
+                          class="card d-flex align-items-center"
+                          data-material-color="#ffffff"
+                          style="height: 39px; cursor: pointer"
+                        >
+                          <span class="my-auto font-weight-bolder"
+                            >Change Color</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        id="edge_material_color_picker"
+                        class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
+                      ></div>
+                    </div>
+                  </div>
+                  <div
+                    class="container-fluid"
+                    data-layout-type="roof"
+                    data-layout-number="1"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="font-weight-bold mb-0">ROOF(R) 1</h5>
+                        <p class="build-type-txt">Select a product</p>
+                      </div>
+                    </div>
+                    <div class="row" id="roof_1_category_list"></div>
+                    <div class="row mt-4">
+                      <div class="col-6 px-1 mb-2">
+                        <select class="custom-select" id="roof_config_select">
+                          <option selected>-- Config --</option>
+                        </select>
+                      </div>
+                      <div class="col-6 px-1">
+                        <select class="custom-select" id="roof_material_select">
+                          <option selected>-- Select Material --</option>
+                        </select>
+                      </div>
+                      <div class="col-6 px-1">
+                        <div
+                          id="roof_material_color_selector"
+                          class="card d-flex align-items-center"
+                          data-material-color="#ffffff"
+                          style="height: 39px; cursor: pointer"
+                        >
+                          <span class="my-auto font-weight-bolder"
+                            >Change Color</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        id="roof_material_color_picker"
+                        class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
+                      ></div>
+                    </div>
+                  </div>
+                  <div
+                    class="container-fluid"
+                    data-layout-type="roof"
+                    data-layout-number="2"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="font-weight-bold mb-0">ROOF(R) 2</h5>
+                        <p class="build-type-txt">Select a product</p>
+                      </div>
+                    </div>
+                    <div class="row" id="roof_2_category_list"></div>
+                    <div class="row mt-4">
+                      <div class="col-6 px-1 mb-2">
+                        <select class="custom-select" id="roof_config_select">
+                          <option selected>-- Config --</option>
+                        </select>
+                      </div>
+                      <div class="col-6 px-1">
+                        <select class="custom-select" id="roof_material_select">
+                          <option selected>-- Select Material --</option>
+                        </select>
+                      </div>
+                      <div class="col-6 px-1">
+                        <div
+                          id="roof_material_color_selector"
+                          class="card d-flex align-items-center"
+                          data-material-color="#ffffff"
+                          style="height: 39px; cursor: pointer"
+                        >
+                          <span class="my-auto font-weight-bolder"
+                            >Change Color</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        id="roof_material_color_picker"
+                        class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
+                      ></div>
+                    </div>
                   </div>
                 </div>
-                <!-- ========= ROOF  SECTION END HERE =========  -->
-
                 <div class="tab-pane fade" id="step_5_content" role="tabpanel">
                   SUMMARY/CHECKOUT
                 </div>
@@ -231,8 +307,9 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
+    <script src="js/data.js"></script>
+    <script src="js/util.js"></script>
     <script src="js/app.js"></script>
     <script src="js/app2.js"></script>
-    <script src="js/util.js"></script>
   </body>
 </html>
