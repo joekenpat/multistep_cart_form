@@ -3,15 +3,16 @@ $(document).ready(() => {
   $("#edge_1_category_list, #edge_2_category_list,#edge_3_product_list").html(
     edgeProductList
   );
-  $("#changeLayout").on("click", function () {
+
+  $("#changeLayout, #step_1").on("click", function () {
     $("#step_1_content").collapse("show");
     $("#step_2_content").collapse("hide");
     $("#step_3_content").collapse("hide");
   });
   $("#viewSummary").on("click", function () {
+    $("#step_3_content").collapse("show");
     $("#step_1_content").collapse("hide");
     $("#step_2_content").collapse("hide");
-    $("#step_3_content").collapse("show");
   });
   $("#roof_1_category_list, #roof_2_category_list").html(roofProductList);
   $("#mesh_1_category_list").html(meshProductList);

@@ -16,10 +16,11 @@
 
   <body>
     <div class="container-fluid px-1 mt-5 col-12 col-md-9 col-lg-6 col-xl-5">
-      <div id="accordion" data-toggle="true">
+      <div id="cartStepper" class="accordion"  data-toggle="true">
         <div class="card">
           <div class="card-header p-0 bg-white" id="headingOne">
             <button
+              id="step_1"
               class="btn btn-link rounded-0 bg-dark text-white font-weight-bold nounderline btn-block"
               data-toggle="collapse"
               data-target="#step_1_content"
@@ -34,7 +35,7 @@
             id="step_1_content"
             class="collapse show"
             aria-labelledby="headingOne"
-            data-parent="#accordion"
+            data-parent="#cartStepper"
           >
             <div class="card-body">
               <div class="col-12">
@@ -58,7 +59,7 @@
             id="step_2_content"
             class="collapse text-center"
             aria-labelledby="headingTwo"
-            data-parent="#accordion"
+            data-parent="#cartStepper"
           >
             <div
               class="container-fluid d-none"
@@ -266,7 +267,7 @@
             id="step_3_content"
             class="collapse"
             aria-labelledby="headingThree"
-            data-parent="#accordion"
+            data-parent="#cartStepper"
           >
             <div class="card-body">
               <div class="">
