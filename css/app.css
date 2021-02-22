@@ -8,6 +8,9 @@
     font-weight: bold;
     font-size: 0.8em;
   }
+  .Summary-text{
+    font-size: 0.7em;
+  }
 }
 
 /* ========= small screen ========= */
@@ -21,6 +24,9 @@
   }
   .mesh-no-choice-txt {
     font-weight: bold;
+    font-size: 0.7em;
+  }
+  .Summary-text{
     font-size: 0.7em;
   }
 }
@@ -40,12 +46,18 @@
   background-color: black;
   color: white;
 }
-.select-box-label{
+.select-box-label {
   font-weight: bold;
   font-size: 0.8em;
- text-align: start !important;
+  text-align: start !important;
 }
-
-.my-card{
+.my-card {
   cursor: pointer;
+}
+.nounderline {
+  text-decoration: none !important;
+}
+.my-width{
+  max-width: 600px;
+  margin: auto;
 }
