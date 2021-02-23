@@ -43,7 +43,7 @@ const buildTypeMap = {
 
 let selectedBuildType = "";
 
-let selectedEdge1ProductData = (selectedEdge2ProductData = selectedMeshProductData = selectedRoof1ProductData = selectedRoof2ProductData = {
+var selectedEdge1ProductData = (selectedEdge2ProductData = selectedMesh1ProductData = selectedRoof1ProductData = selectedRoof2ProductData = {
   dataId: "",
   productId: "",
   productColor: "",
@@ -59,7 +59,7 @@ let selectedDataQuantity = {
   X30: 0,
 };
 
-const edgeData = [
+var edgeData = [
   {
     id: 1,
     name: "Trim",
@@ -149,7 +149,7 @@ const edgeData = [
   },
 ];
 
-const meshData = [
+var meshData = [
   {
     id: 1,
     name: "Fine Mesh",
@@ -239,7 +239,7 @@ const meshData = [
   },
 ];
 
-const roofData = [
+var roofData = [
   {
     id: 1,
     name: "Corro",
@@ -368,7 +368,7 @@ const roofData = [
   },
 ];
 
-const layoutTypeContent = buildTypes.map((x) => {
+var layoutTypeContent = buildTypes.map((x) => {
   return `<div class="col-4 p-1">
   <div class="card my-card" data-layout-id="${x}">
     <div class="card-body text-center">

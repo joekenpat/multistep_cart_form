@@ -1,9 +1,10 @@
 const renderColorPallete = (colors, ref, indicator) => {
   $color_list = [...colors];
+  console.log(ref);
   $(`${ref} > .color-picker-wrap`).remove();
   $(`${ref}`).append('<div class="color-picker-wrap"></div>');
 
-  $(".color-picker-wrap").each(function () {
+  $(`${ref} > .color-picker-wrap`).each(function () {
     var self = $(this);
     if (self.parent().hasClass("cp-sm")) {
       self.addClass("cp-sm");

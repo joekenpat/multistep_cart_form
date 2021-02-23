@@ -1,3 +1,9 @@
+String.prototype.toTitleCase = function () {
+  return this.replace(/(?:^|\s)\w/g, function (match) {
+    return match.toUpperCase();
+  });
+};
+
 const setSelectedProductId = (x, y) => {
   window[y].productId = x.value;
 };
