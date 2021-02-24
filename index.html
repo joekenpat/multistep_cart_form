@@ -61,6 +61,9 @@
             aria-labelledby="headingTwo"
             data-parent="#cartStepper"
           >
+          <div id="formMessages">
+
+          </div>
             <div
               class="container-fluid d-none"
               data-layout-type="edge"
@@ -180,7 +183,7 @@
               <div class="row" id="roof_1_category_list"></div>
               <div class="row mt-3">
                 <div class="col-6 px-1 mb-2">
-                  <select disabled class="custom-select disabled" id="roof_config_select">
+                  <select disabled class="custom-select disabled" id="roof_1_config_select">
                     <option selected>-- Config --</option>
                   </select>
                 </div>
@@ -220,7 +223,7 @@
               <div class="row" id="roof_2_category_list"></div>
               <div class="row mt-3">
                 <div class="col-6 px-1 mb-2">
-                  <select disabled class="custom-select disabled" id="roof_config_select">
+                  <select disabled class="custom-select disabled" id="roof_2_config_select">
                     <option selected>-- Config --</option>
                   </select>
                 </div>
@@ -275,23 +278,21 @@
               </div>
               <div>
                 <span class="font-weight-bold Summary-text">Layout :</span>
-                <span class="ml-2 Summary-text">
-                  EMR (EDGE, MESH, ROOF) PRODUCT
+                <span id="summarySelectedBuildType" class="ml-2 Summary-text">
                 </span>
               </div>
               <div class="mt-3 mb-0">
-                <hr />
+                <hr  />
                 <p class="font-weight-bold">EDGE_1</p>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Category :</span>
-                <span class="ml-2 Summary-text">
-                  Selected Edge Category Name
-                </span>
+                <div>
+                  <span class="font-weight-bold Summary-text">Category :</span>
+                  <span id="summarySelectedCategory" class="ml-2 Summary-text">
+                  </span>
+                </div>
               </div>
               <div>
                 <span class="font-weight-bold Summary-text">Product :</span>
-                <span class="ml-2 Summary-text">
+                <span id="summarySelectedProduct" class="ml-2 Summary-text">
                   Selected Edge product Name
                 </span>
               </div>

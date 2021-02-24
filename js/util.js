@@ -1,56 +1,53 @@
 const renderColorPallete = (colors, ref, indicator) => {
   $color_list = [...colors];
-  console.log(ref);
   $(`${ref} > .color-picker-wrap`).remove();
   $(`${ref}`).append('<div class="color-picker-wrap"></div>');
-
   $(`${ref} > .color-picker-wrap`).each(function () {
-    var self = $(this);
-    if (self.parent().hasClass("cp-sm")) {
-      self.addClass("cp-sm");
-    } else if (self.parent().hasClass("cp-lg")) {
-      self.addClass("cp-lg");
+    let _x = $(this);
+    if (_x.parent().hasClass("cp-sm")) {
+      _x.addClass("cp-sm");
+    } else if (_x.parent().hasClass("cp-lg")) {
+      _x.addClass("cp-lg");
     }
-    self.append("<ul></ul>");
+    _x.append("<ul></ul>");
 
     for (var i = 0; i < $color_list.length; i++) {
       var $active = "";
-      self
-        .children("ul")
-        .append(
-          "<li " +
-            $active +
-            ' style="background-color:' +
-            $color_list[i] +
-            '"></li>'
-        );
+      _x.children("ul").append(
+        "<li " +
+          $active +
+          ' style="background-color:' +
+          $color_list[i] +
+          '"></li>'
+      );
     }
   });
 
   $(`${ref}`).on("click", "li", function () {
-    let self = $(this);
-    let color = rgb2hex(self.css("backgroundColor"));
+    let _x = $(this);
+    let _x_type = ref.split("_", 2);
+    let var_name = `selected${
+      _x_type[0].substr(1).toTitleCase() + _x_type[1]
+    }ProductData`;
+    let color = rgb2hex(_x.css("backgroundColor"));
+    window[var_name].productColor = color;
     $(`${indicator}`).css("backgroundColor", color);
-    if (!self.hasClass("add_new")) {
-      if (!self.hasClass("active")) {
-        self.siblings().removeClass("active");
 
-        self.parents(".color-picker-wrap").children(".color-picker").val(color);
-
-        self.addClass("active");
-
+    if (!_x.hasClass("add_new")) {
+      if (!_x.hasClass("active")) {
+        _x.siblings().removeClass("active");
+        _x.addClass("active");
         if (
-          self
+          _x
             .parents(".color-picker-wrap")
             .children(".color-picker")
             .hasClass("cp-show")
         ) {
-          self.parents(".color-picker-wrap").children("small").remove();
+          _x.parents(".color-picker-wrap").children("small").remove();
         }
       }
     } else {
-      self
-        .parents(".color-picker-wrap")
+      _x.parents(".color-picker-wrap")
         .children("input[type='color']")
         .trigger("click");
     }

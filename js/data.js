@@ -44,13 +44,28 @@ const buildTypeMap = {
 let selectedBuildType = "";
 
 var selectedEdge1ProductData = (selectedEdge2ProductData = selectedMesh1ProductData = selectedRoof1ProductData = selectedRoof2ProductData = {
-  dataId: "",
+  catId: "",
   productId: "",
   productColor: "",
 });
 
-selectedRoof1ProductData.configItemId = "";
-selectedRoof2ProductData.configItemId = "";
+selectedRoof1ProductData = selectedRoof2ProductData = {
+  ...selectedRoof1ProductData,
+  configItemId: "",
+};
+
+const resetState = () => {
+  selectedEdge1ProductData = selectedEdge2ProductData = selectedMesh1ProductData = selectedRoof1ProductData = selectedRoof2ProductData = {
+    catId: "",
+    productId: "",
+    productColor: "",
+  };
+
+  selectedRoof1ProductData = selectedRoof2ProductData = {
+    ...selectedRoof1ProductData,
+    configItemId: "",
+  };
+};
 
 let selectedDataQuantity = {
   X5: 0,
@@ -244,7 +259,7 @@ var roofData = [
     id: 1,
     name: "Corro",
     image: "./assets/port.jpg",
-    config: {
+    configs: {
       name: "corro config",
       items: [
         {
@@ -286,7 +301,7 @@ var roofData = [
     id: 2,
     name: "Roof Sheet",
     image: "./assets/land.jpg",
-    config: {
+    configs: {
       name: "Sheet config",
       items: [
         {
@@ -328,7 +343,7 @@ var roofData = [
     id: 3,
     name: "Ceil Pan",
     image: "./assets/port.jpg",
-    config: {
+    configs: {
       name: "Pan config",
       items: [
         {
@@ -425,3 +440,12 @@ const roofProductList = roofData.map(({ id, image, name }) => {
   </div>
 </div>`;
 });
+
+const formErrorAlert = () => {
+  return `<div class="alert rounded-0 alert-warning alert-dismissible fade show" role="alert">
+  <strong>Empty fields!</strong> Please all fields are required, try to fill them.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>`;
+};

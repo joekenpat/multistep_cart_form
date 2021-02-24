@@ -8,12 +8,35 @@ $(document).ready(() => {
     $("#step_1_content").collapse("show");
     $("#step_2_content").collapse("hide");
     $("#step_3_content").collapse("hide");
+    resetState();
   });
 
   $("#viewSummary").on("click", function () {
-    $("#step_3_content").collapse("show");
-    $("#step_1_content").collapse("hide");
-    $("#step_2_content").collapse("hide");
+    let formNotCompleted = true;
+
+    buildTypeMap[selectedBuildType].map((x) => {
+      let required =
+        window[`selected${x.name.toTitleCase()}${x.number}ProductData`];
+      formNotCompleted = !Object.values(required).some(
+        (x) => x !== null && x !== ""
+      );
+    });
+
+    console.log({ formNotCompleted: formNotCompleted });
+    if (formNotCompleted) {
+      let formMessages = document.getElementById("formMessages");
+      $("#formMessages").html(formErrorAlert());
+      $("#formMessages").toggleClass("d-none", false);
+      formMessages.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    } else {
+      $("#step_3_content").collapse("show");
+      $("#step_1_content").collapse("hide");
+      $("#step_2_content").collapse("hide");
+    }
   });
 
   $("#roof_1_category_list, #roof_2_category_list").html(roofProductList);
@@ -65,7 +88,18 @@ $(document).ready(() => {
         let var_name = `selected${
           _x_type[0].toTitleCase() + _x_type[1]
         }ProductData`;
-        window[var_name].dataId = _xy.data(`${_x_type[0]}-category-id`);
+        window[var_name] = {
+          catId: _xy.data(`${_x_type[0]}-category-id`),
+          productId: "",
+          productColor: "",
+        };
+        if (_x_type[0] == "roof") {
+          updateConfigList(
+            _xy.data(`${_x_type[0]}-category-id`),
+            _x_type[0],
+            _x_type[1]
+          );
+        }
         updateProductList(
           _xy.data(`${_x_type[0]}-category-id`),
           _x_type[0],
@@ -96,15 +130,37 @@ $(document).ready(() => {
       let var_name = `selected${
         _x_type[0].toTitleCase() + _x_type[1]
       }ProductData`;
-      window[var_name].productId = _x_value;
-      console.log(window[var_name]);
+      window[var_name] = {
+        ...window[var_name],
+        productId: _x_value,
+        productColor: "",
+      };
       let colors = window[`${_x_type[0]}Data`]
-        .find((x) => x.id == window[var_name].dataId)
+        .find((x) => x.id == window[var_name].catId)
         .products.find((y) => y.id == _x_value).colors;
       let colorSelectBoxRef = `#${_x_type[0]}_${_x_type[1]}_product_color_picker`;
       let colorSelectIndicatorRef = `#${_x_type[0]}_${_x_type[1]}_product_color_selector`;
       console.log(colorSelectBoxRef, colorSelectIndicatorRef);
       renderColorPallete(colors, colorSelectBoxRef, colorSelectIndicatorRef);
+    });
+  });
+
+  $("#roof_1_config_select,#roof_2_config_select").each(function () {
+    $(this).on("change", () => {
+      let _x = $(this);
+      let _x_id = _x.attr("id");
+      let _x_value = _x.val();
+      let _x_type = _x_id.split("_", 2);
+      let var_name = `selected${
+        _x_type[0].toTitleCase() + _x_type[1]
+      }ProductData`;
+      window[var_name].configItemId = _x_value;
+      console.log(window[var_name]);
+      $(`#${_x_type[0]}_${_x_type[1]}_product_select`).removeAttr("disabled");
+      $(`#${_x_type[0]}_${_x_type[1]}_product_select`).toggleClass(
+        "disabled",
+        false
+      );
     });
   });
 
@@ -123,7 +179,6 @@ $(document).ready(() => {
 });
 
 const updateProductList = (cat_id, buildType, buildTypeNumber) => {
-  let cat = edgeData.find((x) => x.id == cat_id);
   $(`#${buildType}_${buildTypeNumber}_product_color_selector`).attr(
     "disabled",
     true
@@ -132,18 +187,31 @@ const updateProductList = (cat_id, buildType, buildTypeNumber) => {
     "disabled",
     true
   );
+  let cat = window[`${buildType}Data`].find((x) => x.id == cat_id);
   let productSelectBox = $(`#${buildType}_${buildTypeNumber}_product_select`);
-  productSelectBox.removeAttr("disabled");
-  productSelectBox.toggleClass("disabled", false);
+  if (buildType != "roof") {
+    productSelectBox.removeAttr("disabled");
+    productSelectBox.toggleClass("disabled", false);
+  }
   productSelectBox.find("option").not(":first").remove();
   productSelectBox.append(categoryProductList(cat.products));
 };
 
-let categoryProductList = (products = []) => {
-  return products.map((x) => {
+const updateConfigList = (cat_id, buildType, buildTypeNumber) => {
+  let sel = roofData.find((x) => x.id == cat_id);
+  let configSelectBox = $(`#${buildType}_${buildTypeNumber}_config_select`);
+  configSelectBox.removeAttr("disabled");
+  configSelectBox.toggleClass("disabled", false);
+  configSelectBox.find("option").not(":first").remove();
+  configSelectBox.find("option:first").text(`-- ${sel.configs.name} --`);
+  configSelectBox.append(categoryConfigList(sel.configs.items));
+};
+
+const categoryConfigList = (categoryProductList = (data = []) => {
+  return data.map((x) => {
     return `<option value="${x.id}">${x.name}</option>`;
   });
-};
+});
 
 const updateRoofMaterialList = (e) => {
   let sel = roofProducts.find((x) => x.id == e);
