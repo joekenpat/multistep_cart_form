@@ -16,7 +16,7 @@
 
   <body>
     <div class="container-fluid px-1 mt-5 col-12 col-md-9 col-lg-6 col-xl-5">
-      <div id="cartStepper" class="accordion"  data-toggle="true">
+      <div id="cartStepper" class="accordion" data-toggle="true">
         <div class="card">
           <div class="card-header p-0 bg-white" id="headingOne">
             <button
@@ -61,9 +61,7 @@
             aria-labelledby="headingTwo"
             data-parent="#cartStepper"
           >
-          <div id="formMessages">
-
-          </div>
+            <div id="formMessages"></div>
             <div
               class="container-fluid d-none"
               data-layout-type="edge"
@@ -78,7 +76,11 @@
               <div class="row" id="edge_1_category_list"></div>
               <div class="row mt-2">
                 <div class="col-6 px-1">
-                  <select disabled class="custom-select disabled" id="edge_1_product_select">
+                  <select
+                    disabled
+                    class="custom-select disabled"
+                    id="edge_1_product_select"
+                  >
                     <option selected>--Select Material --</option>
                   </select>
                 </div>
@@ -113,7 +115,11 @@
               <div class="row" id="mesh_1_category_list"></div>
               <div class="row mt-3">
                 <div class="col-6 px-1">
-                  <select disabled class="custom-select disabled" id="mesh_1_product_select">
+                  <select
+                    disabled
+                    class="custom-select disabled"
+                    id="mesh_1_product_select"
+                  >
                     <option selected>-- Select Width --</option>
                   </select>
                 </div>
@@ -148,7 +154,11 @@
               <div class="row" id="edge_2_category_list"></div>
               <div class="row mt-3">
                 <div class="col-6 px-1">
-                  <select disabled class="custom-select disabled" id="edge_2_product_select">
+                  <select
+                    disabled
+                    class="custom-select disabled"
+                    id="edge_2_product_select"
+                  >
                     <option selected>--Select Material --</option>
                   </select>
                 </div>
@@ -183,12 +193,20 @@
               <div class="row" id="roof_1_category_list"></div>
               <div class="row mt-3">
                 <div class="col-6 px-1 mb-2">
-                  <select disabled class="custom-select disabled" id="roof_1_config_select">
+                  <select
+                    disabled
+                    class="custom-select disabled"
+                    id="roof_1_config_select"
+                  >
                     <option selected>-- Config --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
-                  <select disabled class="custom-select disabled" id="roof_1_product_select">
+                  <select
+                    disabled
+                    class="custom-select disabled"
+                    id="roof_1_product_select"
+                  >
                     <option selected>-- Select Material --</option>
                   </select>
                 </div>
@@ -223,18 +241,26 @@
               <div class="row" id="roof_2_category_list"></div>
               <div class="row mt-3">
                 <div class="col-6 px-1 mb-2">
-                  <select disabled class="custom-select disabled" id="roof_2_config_select">
+                  <select
+                    disabled
+                    class="custom-select disabled"
+                    id="roof_2_config_select"
+                  >
                     <option selected>-- Config --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
-                  <select disabled class="custom-select disabled" id="roof_2_product_select">
+                  <select
+                    disabled
+                    class="custom-select disabled"
+                    id="roof_2_product_select"
+                  >
                     <option selected>-- Select Material --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
                   <div
-                    id="roof_material_color_selector"
+                    id="roof_2_product_color_selector"
                     class="card d-flex align-items-center"
                     data-material-color="#ffffff"
                     style="height: 39px; cursor: pointer"
@@ -243,194 +269,202 @@
                   </div>
                 </div>
                 <div
-                  id="roof_material_color_picker"
+                  id="roof_2_product_color_picker"
                   class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
                 ></div>
               </div>
               <hr />
             </div>
             <div class="btn-group" id="product_nav_actions" role="group">
-              <button type="button" id="changeLayout" class="btn btn-dark mb-2">Change Layout</button>
-              <button type="button" id="viewSummary" class="btn btn-dark mb-2">View Summary</button>
-            </div>
+              <button type="button" id="changeLayout" class="btn btn-dark mb-2">
+                Change Layout
+              </button>
+              <button type="button" id="viewSummary" class="btn btn-dark mb-2">
+                View Summary
+              </button>
             </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-header p-0 bg-white" id="headingThree">
-            <button
-              disabled
-              class="btn btn-link rounded-0 collapsed bg-dark text-white font-weight-bold nounderline btn-block"
-              aria-expanded="false"
-            >
-              Summary
-            </button>
-          </div>
-          <div
-            id="step_3_content"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#cartStepper"
+      </div>
+      <div class="card">
+        <div class="card-header p-0 bg-white" id="headingThree">
+          <button
+            disabled
+            class="btn btn-link rounded-0 collapsed bg-dark text-white font-weight-bold nounderline btn-block"
+            aria-expanded="false"
           >
-            <div class="card-body">
-              <div class="">
-                <p class="font-weight-bold">BUILD</p>
+            Summary
+          </button>
+        </div>
+        <div
+          id="step_3_content"
+          class="collapse"
+          aria-labelledby="headingThree"
+          data-parent="#cartStepper"
+        >
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="row" id="summaryContent"></div>
               </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Layout :</span>
-                <span id="summarySelectedBuildType" class="ml-2 Summary-text">
-                </span>
-              </div>
-              <div class="mt-3 mb-0">
-                <hr  />
-                <p class="font-weight-bold">EDGE_1</p>
-                <div>
-                  <span class="font-weight-bold Summary-text">Category :</span>
-                  <span id="summarySelectedCategory" class="ml-2 Summary-text">
-                  </span>
-                </div>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Product :</span>
-                <span id="summarySelectedProduct" class="ml-2 Summary-text">
-                  Selected Edge product Name
-                </span>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Color :</span>
-                <span class="ml-2 Summary-text"> red </span>
-              </div>
-              <hr />
-              <div class="mt-3 mb-0">
-                <p class="font-weight-bold">Mesh_1</p>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Category :</span>
-                <span class="ml-2 Summary-text">
-                  Selected Mesh Category Name
-                </span>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Product :</span>
-                <span class="ml-2 Summary-text">
-                  Selected Mesh product Name
-                </span>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Color :</span>
-                <span class="ml-2 Summary-text"> red </span>
-              </div>
-              <hr />
-              <div class="mt-3 mb-0">
-                <p class="font-weight-bold">Roof_1</p>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Category :</span>
-                <span class="ml-2 Summary-text">
-                  Selected Roof Category Name
-                </span>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text"
-                  >Category Config :</span
-                >
-                <span class="ml-2 Summary-text">
-                  Selected Roof Category Name
-                </span>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Product :</span>
-                <span class="ml-2 Summary-text">
-                  Selected Roof product Name
-                </span>
-              </div>
-              <div>
-                <span class="font-weight-bold Summary-text">Color :</span>
-                <span class="ml-2 Summary-text"> red </span>
-              </div>
-              <hr />
-              <div class="mt-3 mb-0">
+
+              <div class="col-6 col-md-10 col-lg-9 mb-0">
                 <p class="font-weight-bold">Quantity</p>
-              </div>
-              <div class="row">
-                <div class="col-4">
-                  <span class="badge badge-pill badge-success">0</span>
-                </div>
-                <div class="col-4">
-                  <div
-                    class="btn-group"
-                    role="group"
-                    aria-label="Basic example"
-                  >
-                    <button type="button" class="btn btn-dark">-</button>
-                    <button type="button " class="btn btn-dark">+</button>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">5CM</span>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="1"
+                    min="1"
+                    style="width: 30px"
+                    max="999999999"
+                    readonly
+                    id="qty5CM"
+                    aria-label="Quantity of 10cm"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      data-size="5CM"
+                      onclick="reduceQuantity(this)"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      -
+                    </button>
+                    <button
+                      data-size="5CM"
+                      onclick="increaseQuantity(this)"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
-                <div class="col-4">
-                  <span class="badge badge-pill badge-dark">5m</span>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-4">
-                  <span class="badge badge-pill badge-success">0</span>
-                </div>
-                <div class="col-4">
-                  <div
-                    class="btn-group"
-                    role="group"
-                    aria-label="Basic example"
-                  >
-                    <button type="button" class="btn btn-dark">-</button>
-                    <button type="button " class="btn btn-dark">+</button>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">5CM</span>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="1"
+                    min="1"
+                    style="width: 30px"
+                    max="999999999"
+                    readonly
+                    id="qty10CM"
+                    aria-label="Quantity of 10cm"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      data-size="10CM"
+                      onclick="reduceQuantity(this)"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      -
+                    </button>
+                    <button
+                      data-size="10CM"
+                      onclick="increaseQuantity(this)"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
-                <div class="col-4">
-                  <span class="badge badge-pill badge-dark">10m</span>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-4">
-                  <span class="badge badge-pill badge-success">0</span>
-                </div>
-                <div class="col-4">
-                  <div
-                    class="btn-group"
-                    role="group"
-                    aria-label="Basic example"
-                  >
-                    <button type="button" class="btn btn-dark">-</button>
-                    <button type="button " class="btn btn-dark">+</button>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">5CM</span>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="1"
+                    min="1"
+                    style="width: 30px"
+                    max="999999999"
+                    readonly
+                    id="qty15CM"
+                    aria-label="Quantity of 10cm"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      data-size="15CM"
+                      onclick="reduceQuantity(this)"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      -
+                    </button>
+                    <button
+                      data-size="15CM"
+                      onclick="increaseQuantity(this)"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
-                <div class="col-4">
-                  <span class="badge badge-pill badge-dark">15m</span>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-4">
-                  <span class="badge badge-pill badge-success">0</span>
-                </div>
-                <div class="col-4">
-                  <div
-                    class="btn-group"
-                    role="group"
-                    aria-label="Basic example"
-                  >
-                    <button type="button" class="btn btn-dark">-</button>
-                    <button type="button " class="btn btn-dark">+</button>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">5CM</span>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="1"
+                    min="1"
+                    style="width: 30px"
+                    max="999999999"
+                    readonly
+                    id="qty30CM"
+                    aria-label="Quantity of 10cm"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      data-size="30CM"
+                      onclick="reduceQuantity(this)"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      -
+                    </button>
+                    <button
+                      data-size="30CM"
+                      onclick="increaseQuantity(this)"
+                      class="btn btn-outline-secondary"
+                      type="button"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
-                <div class="col-4">
-                  <span class="badge badge-pill badge-dark">30m</span>
-                </div>
               </div>
-              <div class="mt-5">
+              <div class="col-12 mt-3">
                 <span class="font-weight-bold"> TOTAL : </span>
-                <span class="ml-3 Summary-text"> $454853943403050350 </span>
+                <h3 id="purchaseTotal">$45350</h3>
               </div>
-              <button type="button" class="btn btn-dark mt-3 btn-sm btn-block">
-                ADD TO CART
-              </button>
+            </div>
+            <div class="row text-center">
+              <div class="btn-group" role="group">
+                <button
+                  type="button"
+                  id="changeProduct"
+                  class="btn btn-dark mb-2"
+                >
+                  Go Back
+                </button>
+                <button type="button" class="btn btn-dark mb-2">
+                  Add To Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>

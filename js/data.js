@@ -41,8 +41,6 @@ const buildTypeMap = {
   ],
 };
 
-let selectedBuildType = "";
-
 var selectedEdge1ProductData = (selectedEdge2ProductData = selectedMesh1ProductData = selectedRoof1ProductData = selectedRoof2ProductData = {
   catId: "",
   productId: "",
@@ -68,11 +66,14 @@ const resetState = () => {
 };
 
 let selectedDataQuantity = {
-  X5: 0,
-  X10: 0,
-  X15: 0,
-  X30: 0,
+  "5CM": 1,
+  "10CM": 1,
+  "15CM": 1,
+  "30CM": 1,
 };
+let totalAmount = 0;
+
+let selectedBuildType = "";
 
 var edgeData = [
   {
