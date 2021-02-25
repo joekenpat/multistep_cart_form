@@ -10,6 +10,11 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/color_picker.css" />
   </head>
@@ -21,7 +26,7 @@
           <div class="card-header p-0 bg-white" id="headingOne">
             <button
               id="step_1"
-              class="btn btn-link rounded-0 bg-dark text-white font-weight-bold nounderline btn-block"
+              class="btn btn-link rounded-0 btn-dark text-white font-weight-bold nounderline btn-block"
               data-toggle="collapse"
               data-target="#step_1_content"
               aria-expanded="true"
@@ -57,7 +62,7 @@
           </div>
           <div
             id="step_2_content"
-            class="collapse text-center"
+            class="collapse pt-2"
             aria-labelledby="headingTwo"
             data-parent="#cartStepper"
           >
@@ -68,9 +73,9 @@
               data-layout-number="1"
             >
               <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12">
                   <h5 class="font-weight-bold mb-0">EDGE(E) 1</h5>
-                  <p class="build-type-txt">Select a product</p>
+                  <h6 id="edge_1_form_aid"></h6>
                 </div>
               </div>
               <div class="row" id="edge_1_category_list"></div>
@@ -81,23 +86,36 @@
                     class="custom-select disabled"
                     id="edge_1_product_select"
                   >
-                    <option selected>--Select Material --</option>
+                    <option value="" selected>--Select Material --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
-                  <div
-                    id="edge_1_product_color_selector"
-                    class="card d-flex align-items-center"
+                  <button
                     data-material-color="#ffffff"
-                    style="height: 39px; cursor: pointer"
+                    id="edge_1_product_color_selector"
+                    type="button"
+                    disabled
+                    class="btn btn-block color-btn bg-main-2 d-flex"
+                    style="padding: 0.2rem"
                   >
-                    <span class="my-auto font-weight-bolder">Change Color</span>
-                  </div>
+                    <span
+                      class="badge color-btn-indicator rounded-circle d-inline-block mr-2"
+                    ></span>
+                    <span class="d-inline-block text-left">
+                      <p class="m-0 color-btn-label">#ffffff</p>
+                      <p
+                        class="m-0 badge w-100 color-btn-badge small font-weight-bold"
+                      >
+                        Change Color
+                      </p>
+                    </span>
+                  </button>
+                  <div
+                    id="edge_1_product_color_picker"
+                    class="mx-auto text-center mt-1 p-1 rounded color-picker cp-sm"
+                    style="display: none"
+                  ></div>
                 </div>
-                <div
-                  id="edge_1_product_color_picker"
-                  class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
-                ></div>
               </div>
               <hr />
             </div>
@@ -107,9 +125,9 @@
               data-layout-number="1"
             >
               <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12">
                   <h5 class="font-weight-bold mb-0">MESH(M) 1</h5>
-                  <p class="build-type-txt">Select a product</p>
+                  <h4 id="mesh_1_form_aid">
                 </div>
               </div>
               <div class="row" id="mesh_1_category_list"></div>
@@ -120,23 +138,36 @@
                     class="custom-select disabled"
                     id="mesh_1_product_select"
                   >
-                    <option selected>-- Select Width --</option>
+                    <option value="" selected>-- Select Width --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
-                  <div
-                    id="mesh_1_product_color_selector"
-                    class="card d-flex align-items-center"
+                  <button
                     data-material-color="#ffffff"
-                    style="height: 39px; cursor: pointer"
+                    id="mesh_1_product_color_selector"
+                    type="button"
+                    disabled
+                    class="btn btn-block color-btn bg-main-2 d-flex"
+                    style="padding: 0.2rem"
                   >
-                    <span class="my-auto font-weight-bolder">Change Color</span>
-                  </div>
+                    <span
+                      class="badge color-btn-indicator rounded-circle d-inline-block mr-2"
+                    ></span>
+                    <span class="d-inline-block text-left">
+                      <p class="m-0 color-btn-label">#ffffff</p>
+                      <p
+                        class="m-0 badge w-100 color-btn-badge small font-weight-bold"
+                      >
+                        Change Color
+                      </p>
+                    </span>
+                  </button>
+                  <div
+                    id="mesh_1_product_color_picker"
+                    class="mx-auto text-center mt-1 p-1 rounded color-picker cp-sm"
+                    style="display: none"
+                  ></div>
                 </div>
-                <div
-                  id="mesh_1_product_color_picker"
-                  class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
-                ></div>
               </div>
               <hr />
             </div>
@@ -145,10 +176,10 @@
               data-layout-type="edge"
               data-layout-number="2"
             >
-              <div class="row text-center">
+              <div class="row">
                 <div class="col-12">
                   <h5 class="font-weight-bold mb-0">EDGE(E) 2</h5>
-                  <p class="build-type-txt">Select a product</p>
+                  <h4 id="edge_2_form_aid">
                 </div>
               </div>
               <div class="row" id="edge_2_category_list"></div>
@@ -159,23 +190,36 @@
                     class="custom-select disabled"
                     id="edge_2_product_select"
                   >
-                    <option selected>--Select Material --</option>
+                    <option value="" selected>--Select Material --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
-                  <div
-                    id="edge_2_product_color_selector"
-                    class="card d-flex align-items-center"
+                  <button
                     data-material-color="#ffffff"
-                    style="height: 39px; cursor: pointer"
+                    id="edge_2_product_color_selector"
+                    type="button"
+                    disabled
+                    class="btn btn-block color-btn bg-main-2 d-flex"
+                    style="padding: 0.2rem"
                   >
-                    <span class="my-auto font-weight-bolder">Change Color</span>
-                  </div>
+                    <span
+                      class="badge color-btn-indicator rounded-circle d-inline-block mr-2"
+                    ></span>
+                    <span class="d-inline-block text-left">
+                      <p class="m-0 color-btn-label">#ffffff</p>
+                      <p
+                        class="m-0 badge w-100 color-btn-badge small font-weight-bold"
+                      >
+                        Change Color
+                      </p>
+                    </span>
+                  </button>
+                  <div
+                    id="edge_2_product_color_picker"
+                    class="mx-auto text-center mt-1 p-1 rounded color-picker cp-sm"
+                    style="display: none"
+                  ></div>
                 </div>
-                <div
-                  id="edge_2_product_color_picker"
-                  class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
-                ></div>
               </div>
               <hr />
             </div>
@@ -185,9 +229,9 @@
               data-layout-number="1"
             >
               <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12">
                   <h5 class="font-weight-bold mb-0">ROOF(R) 1</h5>
-                  <p class="build-type-txt">Select a product</p>
+                  <h4 id="roof_1_form_aid">
                 </div>
               </div>
               <div class="row" id="roof_1_category_list"></div>
@@ -198,7 +242,7 @@
                     class="custom-select disabled"
                     id="roof_1_config_select"
                   >
-                    <option selected>-- Config --</option>
+                    <option value="" selected>-- Config --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
@@ -207,23 +251,36 @@
                     class="custom-select disabled"
                     id="roof_1_product_select"
                   >
-                    <option selected>-- Select Material --</option>
+                    <option value="" selected>-- Select Material --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
-                  <div
-                    id="roof_1_product_color_selector"
-                    class="card d-flex align-items-center"
+                  <button
                     data-material-color="#ffffff"
-                    style="height: 39px; cursor: pointer"
+                    id="roof_1_product_color_selector"
+                    type="button"
+                    disabled
+                    class="btn btn-block color-btn bg-main-2 d-flex"
+                    style="padding: 0.2rem"
                   >
-                    <span class="my-auto font-weight-bolder">Change Color</span>
-                  </div>
+                    <span
+                      class="badge color-btn-indicator rounded-circle d-inline-block mr-2"
+                    ></span>
+                    <span class="d-inline-block text-left">
+                      <p class="m-0 color-btn-label">#ffffff</p>
+                      <p
+                        class="m-0 badge w-100 color-btn-badge small font-weight-bold"
+                      >
+                        Change Color
+                      </p>
+                    </span>
+                  </button>
+                  <div
+                    id="roof_1_product_color_picker"
+                    class="mx-auto text-center mt-1 p-1 rounded color-picker cp-sm"
+                    style="display: none"
+                  ></div>
                 </div>
-                <div
-                  id="roof_1_product_color_picker"
-                  class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
-                ></div>
               </div>
               <hr />
             </div>
@@ -233,9 +290,9 @@
               data-layout-number="2"
             >
               <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12">
                   <h5 class="font-weight-bold mb-0">ROOF(R) 2</h5>
-                  <p class="build-type-txt">Select a product</p>
+                  <h4 id="roof_2_form_aid">
                 </div>
               </div>
               <div class="row" id="roof_2_category_list"></div>
@@ -246,7 +303,7 @@
                     class="custom-select disabled"
                     id="roof_2_config_select"
                   >
-                    <option selected>-- Config --</option>
+                    <option value="" selected>-- Config --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
@@ -255,27 +312,40 @@
                     class="custom-select disabled"
                     id="roof_2_product_select"
                   >
-                    <option selected>-- Select Material --</option>
+                    <option value="" selected>-- Select Material --</option>
                   </select>
                 </div>
                 <div class="col-6 px-1">
-                  <div
-                    id="roof_2_product_color_selector"
-                    class="card d-flex align-items-center"
+                  <button
                     data-material-color="#ffffff"
-                    style="height: 39px; cursor: pointer"
+                    id="roof_2_product_color_selector"
+                    type="button"
+                    disabled
+                    class="btn btn-block color-btn bg-main-2 d-flex"
+                    style="padding: 0.2rem"
                   >
-                    <span class="my-auto font-weight-bolder">Change Color</span>
-                  </div>
+                    <span
+                      class="badge color-btn-indicator rounded-circle d-inline-block mr-2"
+                    ></span>
+                    <span class="d-inline-block text-left">
+                      <p class="m-0 color-btn-label">#ffffff</p>
+                      <p
+                        class="m-0 badge w-100 color-btn-badge small font-weight-bold"
+                      >
+                        Change Color
+                      </p>
+                    </span>
+                  </button>
+                  <div
+                    id="roof_2_product_color_picker"
+                    class="mx-auto text-center mt-1 p-1 rounded color-picker cp-sm"
+                    style="display: none"
+                  ></div>
                 </div>
-                <div
-                  id="roof_2_product_color_picker"
-                  class="col-11 mx-auto text-center px-1 mt-2 fade color-picker cp-sm text-center"
-                ></div>
               </div>
               <hr />
             </div>
-            <div class="btn-group" id="product_nav_actions" role="group">
+            <div class="btn-group mx-auto" id="product_nav_actions" role="group">
               <button type="button" id="changeLayout" class="btn btn-dark mb-2">
                 Change Layout
               </button>
@@ -290,7 +360,7 @@
         <div class="card-header p-0 bg-white" id="headingThree">
           <button
             disabled
-            class="btn btn-link rounded-0 collapsed bg-dark text-white font-weight-bold nounderline btn-block"
+            class="btn btn-link rounded-0 collapsed btn-dark text-white font-weight-bold nounderline btn-block"
             aria-expanded="false"
           >
             Summary

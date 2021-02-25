@@ -23,6 +23,8 @@ const renderColorPallete = (colors, ref, indicator) => {
     }
   });
 
+  $(indicator).removeAttr("disabled");
+
   $(`${ref}`).on("click", "li", function () {
     let _x = $(this);
     let _x_type = ref.split("_", 2);
@@ -31,8 +33,9 @@ const renderColorPallete = (colors, ref, indicator) => {
     }ProductData`;
     let color = rgb2hex(_x.css("backgroundColor"));
     window[var_name].productColor = color;
-    $(`${indicator}`).css("backgroundColor", color);
-
+    $(`${indicator} > span:first-child`).css("backgroundColor", color);
+    $(`${indicator} > span:last-child >p:first-child`).text(color);
+    $(`${_x_type[0]}_${_x_type[1]}_form_aid`).text("");
     if (!_x.hasClass("add_new")) {
       if (!_x.hasClass("active")) {
         _x.siblings().removeClass("active");

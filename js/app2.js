@@ -70,6 +70,7 @@ $(document).ready(() => {
           $(
             `#step_2_content .container-fluid[data-layout-type="${x.name}"][data-layout-number="${x.number}"]`
           ).toggleClass("d-none", false);
+          formTextAid(x.name, `#${x.name}_${x.number}_form_aid`, 0);
         });
         if (!self.hasClass("active-selected-build")) {
           self
@@ -83,9 +84,6 @@ $(document).ready(() => {
         }
         $("#product_nav_actions").toggleClass("d-none", false);
         $("#step_2_content").collapse("show");
-        $("#summarySelectedBuildType").text(
-          `${selectedBuildType} (${buildTypeMap[selectedBuildType][0]["name"]}, ${buildTypeMap[selectedBuildType][1]["name"]}, ${buildTypeMap[selectedBuildType][2]["name"]}) `
-        );
       });
     });
 
@@ -101,32 +99,53 @@ $(document).ready(() => {
         let var_name = `selected${
           _x_type[0].toTitleCase() + _x_type[1]
         }ProductData`;
-        window[var_name] = {
-          catId: _xy.data(`${_x_type[0]}-category-id`),
-          productId: "",
-          productColor: "",
-        };
+        formTextAid(_x_type[0], `#${_x_type[0]}_${_x_type[1]}_form_aid`, 1);
+        $(`#${_x_type[0]}_${_x_type[1]}_product_color_picker`).hide("slow");
+        $(`#${_x_type[0]}_${_x_type[1]}_product_color_selector`).attr(
+          "disabled",
+          true
+        );
         if (_x_type[0] == "roof") {
-          updateConfigList(
+          $(`#${_x_type[0]}_${_x_type[1]}_product_select`).attr(
+            "disabled",
+            true
+          );
+        }
+        window[var_name].productColor = "";
+        window[var_name].productId = "";
+        if (window[var_name].catId != _xy.data(`${_x_type[0]}-category-id`)) {
+          window[var_name] = {
+            catId: _xy.data(`${_x_type[0]}-category-id`),
+            productId: "",
+            productColor: "",
+          };
+          $(`#${_x_type[0]}_${_x_type[1]}_product_color_selector`).attr(
+            "disabled",
+            true
+          );
+          if (_x_type[0] == "roof") {
+            updateConfigList(
+              _xy.data(`${_x_type[0]}-category-id`),
+              _x_type[0],
+              _x_type[1]
+            );
+          } else {
+          }
+          updateProductList(
             _xy.data(`${_x_type[0]}-category-id`),
             _x_type[0],
             _x_type[1]
           );
-        }
-        updateProductList(
-          _xy.data(`${_x_type[0]}-category-id`),
-          _x_type[0],
-          _x_type[1]
-        );
-        if (!_xy.hasClass("active-selected-build")) {
-          _xy
-            .parent()
-            .siblings()
-            .children(".card")
-            .removeClass("active-selected-build");
-          _xy.toggleClass("active-selected-build");
-        } else {
-          _xy.toggleClass("active-selected-build");
+          if (!_xy.hasClass("active-selected-build")) {
+            _xy
+              .parent()
+              .siblings()
+              .children(".card")
+              .removeClass("active-selected-build");
+            _xy.toggleClass("active-selected-build");
+          } else {
+            _xy.toggleClass("active-selected-build");
+          }
         }
       });
     });
@@ -140,20 +159,39 @@ $(document).ready(() => {
       let _x_id = _x.attr("id");
       let _x_value = _x.val();
       let _x_type = _x_id.split("_", 2);
-      let var_name = `selected${
-        _x_type[0].toTitleCase() + _x_type[1]
-      }ProductData`;
-      window[var_name] = {
-        ...window[var_name],
-        productId: _x_value,
-        productColor: "",
-      };
-      let colors = window[`${_x_type[0]}Data`]
-        .find((x) => x.id == window[var_name].catId)
-        .products.find((y) => y.id == _x_value).colors;
-      let colorSelectBoxRef = `#${_x_type[0]}_${_x_type[1]}_product_color_picker`;
-      let colorSelectIndicatorRef = `#${_x_type[0]}_${_x_type[1]}_product_color_selector`;
-      renderColorPallete(colors, colorSelectBoxRef, colorSelectIndicatorRef);
+      if (_x_value == "") {
+        $(`#${_x_type[0]}_${_x_type[1]}_product_color_selector`).attr(
+          "disabled",
+          true
+        );
+        $(`#${_x_type[0]}_${_x_type[1]}_product_color_picker`).hide("slow");
+        if (_x_type[0] == "roof") {
+          formTextAid(_x_type[0], `#${_x_type[0]}_${_x_type[1]}_form_aid`, 2);
+        } else {
+          formTextAid(_x_type[0], `#${_x_type[0]}_${_x_type[1]}_form_aid`, 1);
+        }
+      } else {
+        $(`#${_x_type[0]}_${_x_type[1]}_product_color_picker`).hide("slow");
+        let var_name = `selected${
+          _x_type[0].toTitleCase() + _x_type[1]
+        }ProductData`;
+        window[var_name] = {
+          ...window[var_name],
+          productId: _x_value,
+          productColor: "",
+        };
+        if (_x_type[0] == "roof") {
+          formTextAid(_x_type[0], `#${_x_type[0]}_${_x_type[1]}_form_aid`, 3);
+        } else {
+          formTextAid(_x_type[0], `#${_x_type[0]}_${_x_type[1]}_form_aid`, 2);
+        }
+        let colors = window[`${_x_type[0]}Data`]
+          .find((x) => x.id == window[var_name].catId)
+          .products.find((y) => y.id == _x_value).colors;
+        let colorSelectBoxRef = `#${_x_type[0]}_${_x_type[1]}_product_color_picker`;
+        let colorSelectIndicatorRef = `#${_x_type[0]}_${_x_type[1]}_product_color_selector`;
+        renderColorPallete(colors, colorSelectBoxRef, colorSelectIndicatorRef);
+      }
     });
   });
 
@@ -166,12 +204,21 @@ $(document).ready(() => {
       let var_name = `selected${
         _x_type[0].toTitleCase() + _x_type[1]
       }ProductData`;
+      if (_x_value == "") {
+        console.log(_x_value);
+        $(`#${_x_type[0]}_${_x_type[1]}_product_select`).attr("disabled", true);
+      } else {
+        $(`#${_x_type[0]}_${_x_type[1]}_product_select`).removeAttr("disabled");
+      }
       window[var_name].configItemId = _x_value;
-      $(`#${_x_type[0]}_${_x_type[1]}_product_select`).removeAttr("disabled");
-      $(`#${_x_type[0]}_${_x_type[1]}_product_select`).toggleClass(
+      formTextAid(_x_type[0], `#${_x_type[0]}_${_x_type[1]}_form_aid`, 2);
+      $(`#${_x_type[0]}_${_x_type[1]}_product_color_picker`).hide("slow");
+      $(`#${_x_type[0]}_${_x_type[1]}_product_color_selector`).attr(
         "disabled",
-        false
+        true
       );
+      window[var_name].productColor = "";
+      window[var_name].productId = "";
     });
   });
 
@@ -182,18 +229,12 @@ $(document).ready(() => {
       let _x = $(this);
       let _x_id = _x.attr("id");
       let _x_type = _x_id.split("_", 2);
-      $(`#${_x_type[0]}_${_x_type[1]}_product_color_picker`).toggleClass(
-        "show"
-      );
+      $(`#${_x_type[0]}_${_x_type[1]}_product_color_picker`).toggle("fast");
     });
   });
 });
 
 const updateProductList = (cat_id, buildType, buildTypeNumber) => {
-  $(`#${buildType}_${buildTypeNumber}_product_color_selector`).attr(
-    "disabled",
-    true
-  );
   $(`#${buildType}_${buildTypeNumber}_product_color_selector`).toggleClass(
     "disabled",
     true
@@ -392,4 +433,19 @@ const increaseQuantity = (x) => {
   $(`#qty${_x_size}`).val(selectedDataQuantity[_x_size]);
   $("#summaryContent").html(updateSummaryContent());
   $("#purchaseTotal").text(`$${totalAmount}`);
+};
+
+const formTextAidMessages = {
+  roof: [
+    "Choose A Product",
+    "Select Configuration",
+    "Select A Material",
+    "Choose A Color",
+  ],
+  mesh: ["Choose A Product", "Select Width", "Choose A Color"],
+  edge: ["Choose A Product", "Select Material", "Choose A Color"],
+};
+
+const formTextAid = (type, ref, step) => {
+  $(ref).text(formTextAidMessages[type][step]);
 };

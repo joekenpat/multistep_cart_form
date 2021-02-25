@@ -13,3 +13,4 @@ const setSelectedProductColor = (x, y) => {
 const setSelectedConfigItem = (x, y) => {
   window[y].configItemId = x.value;
 };
+

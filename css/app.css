@@ -8,7 +8,7 @@
     font-weight: bold;
     font-size: 0.8em;
   }
-  .Summary-text{
+  .Summary-text {
     font-size: 0.7em;
   }
 }
@@ -26,7 +26,7 @@
     font-weight: bold;
     font-size: 0.7em;
   }
-  .Summary-text{
+  .Summary-text {
     font-size: 0.7em;
   }
 }
@@ -43,8 +43,7 @@
   height: 100%;
 }
 .active-selected-build {
-  background-color: black;
-  color: white;
+  border: 2px solid #18a0fb;
 }
 .select-box-label {
   font-weight: bold;
@@ -57,7 +56,26 @@
 .nounderline {
   text-decoration: none !important;
 }
-.my-width{
+.my-width {
   max-width: 600px;
   margin: auto;
+}
+
+.bg-main {
+  background-color: #18a0fb;
+}
+
+.bg-main-2 {
+  background-color: #f5f6f8;
+}
+
+select:active:not(:disabled),
+select:focus:not(:disabled),
+select:hover:not(:disabled),
+.color-btn:active:not(:disabled),
+.color-btn:focus:not(:disabled),
+.color-btn:hover:not(:disabled) {
+  border: 2px solid #18a0fb;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
